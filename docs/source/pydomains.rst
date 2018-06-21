@@ -304,12 +304,12 @@ Notes and Caveats
    that domains carry only one kind of content. Many domains don't. And
    even when they do, the quality varies immensely. So we can predict at
    the URL level also. And it is something we hope to add over time. See
-   `TODO <TODO>`__ for our plans.
+   `TODO <https://github.com/themains/pydomains/blob/master/TODO>`__ for our plans.
 
 -  There are a lot of categories where we do not expect domain names to
    not have any systematic patterns. Rather than make noisy predictions
    using just the data from domain names, we plan to tackle this
-   prediction task with some additional data. See `TODO <TODO>`__ for
+   prediction task with some additional data. See `TODO <https://github.com/themains/pydomains/blob/master/TODO>`__ for
    our plans.
 
 Authors
