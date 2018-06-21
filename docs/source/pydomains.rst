@@ -64,7 +64,7 @@ API
 
 
 Using pydomains
-~~~~~~~~~~~~~~~
+---------------
 
 ::
 
@@ -260,19 +260,19 @@ Using pydomains
 
 
 Models
-~~~~~~~~~~~~~~~~
+------
 
 For more information about the models, including the decisions we made around
 curtailing the number of categories, see `here <./pydomains/models/>`__
 
 Underlying Data
-~~~~~~~~~~~~~~~~
+---------------
 
 We use data from DMOZ, Shallalist, PhishTank, and a prominent Blacklist aggregator.
-For more details about how the underlying data, see `here <./pydomains/data/>`__
+For more details about how the underlying data, see `here <https://github.com/themains/pydomains/tree/master/pydomains/data>`__
 
 Validation
-~~~~~~~~~~~~~~~~~
+----------
 
 We compare content categories according to the `TrustedSource API <https://www.trustedsource.org>`__ 
 with content category from Shallalist and the Shallalist model for all the unique domains in the 
@@ -280,13 +280,13 @@ comScore 2004 data:
 
 1. `comScore 2004 Trusted API results <http://dx.doi.org/10.7910/DVN/BPS1OK>`__
 
-2. `comScore 2004 categories from pydomains <./pydomains/app/comscore-2004.ipynb>`__
+2. `comScore 2004 categories from pydomains <https://github.com/themains/pydomains/blob/master/pydomains/app/comscore-2004.ipynb>`__
 
-3. `comparison between TrustedSource and Shallalist and shallalist model <./pydomains/app/comscore-2004-eval.ipynb>`__
+3. `comparison between TrustedSource and Shallalist and shallalist model <https://github.com/themains/pydomains/blob/master/pydomains/app/comscore-2004-eval.ipynb>`__
 
 
 Notes and Caveats
-~~~~~~~~~~~~~~~~~
+-----------------
 
 -  The DMOZ categorization system at tier 1 is bad. The category names
    are vague. They have a lot of subcategories that could easily belong
@@ -313,12 +313,12 @@ Notes and Caveats
    our plans.
 
 Authors
-~~~~~~~
+-------
 
 Suriyan Laohaprapanon and Gaurav Sood
 
 Contributor Code of Conduct
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 The project welcomes contributions from everyone! In fact, it depends on
 it. To maintain this welcoming atmosphere, and to collaborate in a fun
@@ -327,7 +327,7 @@ the `Contributor Code of
 Conduct <http://contributor-covenant.org/version/1/0/0/>`__
 
 License
-~~~~~~~
+-------
 
 The package is released under the `MIT
 License <https://opensource.org/licenses/MIT>`__.
