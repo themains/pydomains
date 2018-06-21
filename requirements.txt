@@ -1,0 +1,7 @@
+pandas
+tldextract
+requests
+tqdm
+h5py
+keras
+tensorflow
