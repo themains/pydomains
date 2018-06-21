@@ -17,32 +17,34 @@ domain name. If the domain name is in the data, the package gives the
 corresponding category (or categories). If it isn't, the package uses a
 trained model to predict the kind of content hosted by the domain.
 
-Notes and Caveats
-~~~~~~~~~~~~~~~~~
 
--  The DMOZ categorization system at tier 1 is bad. The category names
-   are vague. They have a lot of subcategories that could easily belong
-   to other tier 1 categories. That means a) it would likely be hard to
-   classify well at tier 1 and b) not very valuable. So we choose not to
-   predict tier 1 DMOZ categories.
+Quick Start
+------------
 
--  The association between patterns in domain names and the kind of
-   content they host may change over time. It may change as new domains
-   come online and as older domains are repurposed. All this likely
-   happens slowly. But, to be careful, we add a ``year`` variable in our
-   functions. Each list and each model is for a particular year.
+::
 
--  Imputing the kind of content hosted by a domain may suggest to some
-   that domains carry only one kind of content. Many domains don't. And
-   even when they do, the quality varies immensely. So we can predict at
-   the URL level also. And it is something we hope to add over time. See
-   `TODO <TODO>`__ for our plans.
+    import pandas as pd
+    from pydomains import *
 
--  There are a lot of categories where we do not expect domain names to
-   not have any systematic patterns. Rather than make noisy predictions
-   using just the data from domain names, we plan to tackle this
-   prediction task with some additional data. See `TODO <TODO>`__ for
-   our plans.
+    # Get help
+    help(dmoz_cat)
+
+    # Load data
+    df = pd.read_csv('./pydomains/examples/input-header.csv')
+
+    #  df
+    #       label                                url
+    #   0   test1                        topshop.com
+    #   1   test2                   beyondrelief.com
+
+    # Get the Content Category from DMOZ, phishtank
+    df_dmoz  = dmoz_cat(df, domain_names = 'url')
+    df_phish = phish_cat(df, domain_names = 'url')
+
+    # Predicted category from shallalist, toulouse
+    df_shalla   = pred_shalla(df, domain_names = 'url')
+    df_toulouse = pred_toulouse(df, domain_names = 'url')
+
 
 Installation
 ------------
@@ -54,8 +56,8 @@ Installation is as easy as typing in:
     pip install pydomains
 
 
-APIs
-----
+API
+------
 
 .. automodule:: pydomains
    :members:
@@ -255,6 +257,60 @@ Using pydomains
     7                          0.805531
     8                          0.015817
     9                          0.547802
+
+
+Models
+~~~~~~~~~~~~~~~~
+
+For more information about the models, including the decisions we made around
+curtailing the number of categories, see `here <./pydomains/models/>`__
+
+Underlying Data
+~~~~~~~~~~~~~~~~
+
+We use data from DMOZ, Shallalist, PhishTank, and a prominent Blacklist aggregator.
+For more details about how the underlying data, see `here <./pydomains/data/>`__
+
+Validation
+~~~~~~~~~~~~~~~~~
+
+We compare content categories according to the `TrustedSource API <https://www.trustedsource.org>`__ 
+with content category from Shallalist and the Shallalist model for all the unique domains in the 
+comScore 2004 data: 
+
+1. `comScore 2004 Trusted API results <http://dx.doi.org/10.7910/DVN/BPS1OK>`__
+
+2. `comScore 2004 categories from pydomains <./pydomains/app/comscore-2004.ipynb>`__
+
+3. `comparison between TrustedSource and Shallalist and shallalist model <./pydomains/app/comscore-2004-eval.ipynb>`__
+
+
+Notes and Caveats
+~~~~~~~~~~~~~~~~~
+
+-  The DMOZ categorization system at tier 1 is bad. The category names
+   are vague. They have a lot of subcategories that could easily belong
+   to other tier 1 categories. That means a) it would likely be hard to
+   classify well at tier 1 and b) not very valuable. So we choose not to
+   predict tier 1 DMOZ categories.
+
+-  The association between patterns in domain names and the kind of
+   content they host may change over time. It may change as new domains
+   come online and as older domains are repurposed. All this likely
+   happens slowly. But, to be careful, we add a ``year`` variable in our
+   functions. Each list and each model is for a particular year.
+
+-  Imputing the kind of content hosted by a domain may suggest to some
+   that domains carry only one kind of content. Many domains don't. And
+   even when they do, the quality varies immensely. So we can predict at
+   the URL level also. And it is something we hope to add over time. See
+   `TODO <TODO>`__ for our plans.
+
+-  There are a lot of categories where we do not expect domain names to
+   not have any systematic patterns. Rather than make noisy predictions
+   using just the data from domain names, we plan to tackle this
+   prediction task with some additional data. See `TODO <TODO>`__ for
+   our plans.
 
 Authors
 ~~~~~~~
