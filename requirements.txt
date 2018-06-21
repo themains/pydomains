@@ -5,3 +5,4 @@ tqdm
 h5py
 keras
 tensorflow
+sphinx_rtd_theme
