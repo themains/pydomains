@@ -1,0 +1,8 @@
+pandas
+tldextract
+requests
+tqdm
+h5py
+keras
+tensorflow==1.5.0
+sphinx_rtd_theme
