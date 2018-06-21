@@ -263,7 +263,7 @@ Models
 ------
 
 For more information about the models, including the decisions we made around
-curtailing the number of categories, see `here <./pydomains/models/>`__
+curtailing the number of categories, see `here <https://github.com/themains/pydomains/tree/master/pydomains/models>`__
 
 Underlying Data
 ---------------
