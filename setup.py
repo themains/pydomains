@@ -68,7 +68,7 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/soodoku/pydomains',
+    url='https://github.com/themains/pydomains',
 
     # Author details
     author='Suriyan Laohaprapanon, Gaurav Sood',
