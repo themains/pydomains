@@ -84,7 +84,7 @@ def pred_phish(df, domain_names="domain_names", year=2016, latest=False):
     col_domain = 'pred_phish_{0:04d}_domain'.format(year)
     col_lab =  'pred_phish_{0:04d}_lab'.format(year)
     col_prob =  'pred_phish_{0:04d}_prob'.format(year)
-    df[col_domain] = df[domain_names].apply(lambda c: url2domain(c))
+    df[col_domain] = df[domain_names].apply(lambda c: url2domain(c, exclude_subdomains=['www']))
 
     # build X from index of n-gram sequence
     X = np.array(df[col_domain].apply(lambda c: find_ngrams(vocab, c, NGRAMS)))
@@ -92,7 +92,7 @@ def pred_phish(df, domain_names="domain_names", year=2016, latest=False):
 
     df[col_lab] = model.predict_classes(X, verbose=2)
 
-    df[col_prob] = model.predict_proba(X, verbose=2)
+    df[col_prob] = model.predict_proba(X, verbose=2)[:, 1]
 
     return df
 
