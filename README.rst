@@ -479,6 +479,14 @@ comScore 2004 data:
 
 3. `comparison between TrustedSource and Shallalist and shallalist model <./pydomains/app/comscore-2004-eval.ipynb>`__
 
+Learning Browsing Behavior Using pydomains
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To make it easier to learn browsing behavior of people, we obtained the type of content
+hosted by a domain using all the functions in pydomains for all the unique domains in all 
+the comScore data from 2002 to 2016 (there are some missing years). We have posted the data
+`here <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DXSNFA>`__  
+
 Notes and Caveats
 ~~~~~~~~~~~~~~~~~~~
 
