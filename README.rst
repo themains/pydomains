@@ -17,6 +17,10 @@ like the Shallalist, DMOZ, PhishTank, and such. Second, it exposes models built 
 these large labeled datasets; the models estimate the relationship between sequence of 
 characters in the domain name and the kind of content hosted by the domain. 
 
+Downloads
+----------
+As of November 1st, 2018, the package had been downloaded over 800 times (see `saved BigQuery <https://bigquery.cloud.google.com/savedquery/267723140544:4c9fa6c6a9ca499c9066157e0463ab9a>`__).
+
 
 Quick Start
 ------------
