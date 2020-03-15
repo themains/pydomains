@@ -11,7 +11,7 @@ PyDomains: Classifying the Content of Domains
     :target: http://pydomains.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 .. image:: https://pepy.tech/badge/pydomains
-    :alt: https://pepy.tech/project/pydomains
+    :target: https://pepy.tech/project/pydomains
 
 The package provides two broad ways of learning about the kind of content hosted 
 on a domain. First, it provides convenient access to curated lists of domain content
