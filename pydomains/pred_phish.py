@@ -92,7 +92,7 @@ def pred_phish(df, domain_names="domain_names", year=2016, latest=False):
 
     df[col_lab] = model.predict_classes(X, verbose=2)
 
-    df[col_prob] = model.predict_proba(X, verbose=2)[:, 1]
+    df[col_prob] = model.predict_proba(X, verbose=2)
 
     return df
 
