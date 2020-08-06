@@ -13,11 +13,11 @@ PyDomains: Classifying the Content of Domains
 .. image:: https://pepy.tech/badge/pydomains
     :target: https://pepy.tech/project/pydomains
 
-The package provides two broad ways of learning about the kind of content hosted 
+The package provides two broad ways of learning about the kind of content hosted
 on a domain. First, it provides convenient access to curated lists of domain content
-like the Shallalist, DMOZ, PhishTank, and such. Second, it exposes models built on top of 
-these large labeled datasets; the models estimate the relationship between sequence of 
-characters in the domain name and the kind of content hosted by the domain. 
+like the Shallalist, DMOZ, PhishTank, and such. Second, it exposes models built on top of
+these large labeled datasets; the models estimate the relationship between sequence of
+characters in the domain name and the kind of content hosted by the domain.
 
 Quick Start
 ------------
@@ -68,7 +68,7 @@ API
    -  **Arguments:**
 
       -  ``df``: pandas dataframe. No default.
-      -  ``domain_names``: column with the domain names/URLs. 
+      -  ``domain_names``: column with the domain names/URLs.
          Default is ``domain_names``
       -  ``year``. Specify the year from which you want to use the data.
          Currently only DMOZ data from 2016, and Shallalist and Phishtank
@@ -104,7 +104,7 @@ API
    -  **Examples:**
 
       ::
-      
+
           import pandas as pd
 
           df = pd.DataFrame([{'domain_names': 'http://www.google.com'}])
@@ -113,15 +113,15 @@ API
           shalla_cat(df)
           phish_cat(df)
 
-2. **pred\_shalla**: We use data from Shallalist to train a 
-   `LSTM model <pydomains/models/shalla_pred_2017_others.ipynb>`__. The function
-   uses the trained model to predict the category of the domain based on 
+2. **pred\_shalla**: We use data from Shallalist to train a
+   `LSTM model <pydomains/models/shalla_pred_2017_lstm.ipynb>`__. The function
+   uses the trained model to predict the category of the domain based on
    the domain name.
 
    -  **Arguments:**
 
       -  ``df``: pandas dataframe. No default.
-      -  ``domain_names``: column with the domain names/URLs. 
+      -  ``domain_names``: column with the domain names/URLs.
          Default is ``domain_names``
       -  ``year``. Year of the model. Default is 2017. Currently only
          a model based on data from 2017 is available.
@@ -138,9 +138,9 @@ API
 
    -  **Output**
 
-      -  Appends a column carrying the label of the category with the 
-         highest probability (``pred_shalla_year_lab``) and a series of 
-         columns with probabilities for each category 
+      -  Appends a column carrying the label of the category with the
+         highest probability (``pred_shalla_year_lab``) and a series of
+         columns with probabilities for each category
          (``pred_shalla_year_prob_catname``).
 
    -  **Examples:**
@@ -149,15 +149,15 @@ API
 
           pred_shalla(df)
 
-3. **pred\_toulouse**: We use data from http://dsi.ut-capitole.fr/blacklists/ to 
-   train a `LSTM model <pydomains/models/toulouse_pred_2017_others.ipynb>`__ that predicts
-   the category of content hosted by the domain. The function uses the trained 
+3. **pred\_toulouse**: We use data from http://dsi.ut-capitole.fr/blacklists/ to
+   train a `LSTM model <pydomains/models/toulouse_pred_2017_lstm.ipynb>`__ that predicts
+   the category of content hosted by the domain. The function uses the trained
    model to predict the category of the domain based on the domain name.
 
    -  **Arguments:**
 
       -  ``df``: pandas dataframe. No default.
-      -  ``domain_names``: column with the domain names/URLs. 
+      -  ``domain_names``: column with the domain names/URLs.
          Default is ``domain_names``
       -  ``year``. Year of the model. Default is 2017. Currently only
          a model based on data from 2017 is available.
@@ -174,9 +174,9 @@ API
 
    -  **Output:**
 
-      -  Appends a column carrying the label of the category with the 
-         highest probability (``pred_toulouse_year_lab``) and a series of 
-         columns with probabilities for each category 
+      -  Appends a column carrying the label of the category with the
+         highest probability (``pred_toulouse_year_lab``) and a series of
+         columns with probabilities for each category
          (``pred_toulouse_year_prob_catname``).
 
    - **Examples:**
@@ -188,14 +188,14 @@ API
 4. **pred\_phish**: Given the importance, we devote special care to try
    to predict domains involved in phishing well. To do that, we use data
    from `PhishTank <https://www.phishtank.com/>`__ and combine it with
-   data from http://s3.amazonaws.com/alexa-static/top-1m.csv.zip, and train a `LSTM
-   model <pydomains/models/phish_pred_2017.ipynb>`__. The function gives the 
+   data from http://s3.amazonaws.com/alexa-static/top-1m.csv.zip, and train a
+   `LSTM model <pydomains/models/phish_pred_2017_lstm_rf_svc.ipynb>`__. The function gives the
    predicted probability based on the LSTM model.
 
    -  **Arguments:**
 
       -  ``df``: pandas dataframe. No default.
-      -  ``domain_names``: column with the domain names/URLs. 
+      -  ``domain_names``: column with the domain names/URLs.
          Default is ``domain_names``
       -  ``year``. Year of the model. Default is 2017. Currently only
          a model based on data from 2017 is available.
@@ -213,7 +213,7 @@ API
    -  **Output:**
 
       -  Appends column `pred_phish_year_lab` which contains the most probable
-         label, and a column indicating the probability that the domain 
+         label, and a column indicating the probability that the domain
          is involved in distributing malware (`pred_phish_year_prob`).
 
    -  **Examples:**
@@ -223,17 +223,17 @@ API
           pred_phish(df)
 
 5. **pred\_malware**: Once again, given the importance of flagging domains
-   that carry malware, we again devote extra care to try to predict domains 
-   involved in distributing malware well. We combine data on malware 
-   domains http://mirror1.malwaredomains.com/ with data from 
-   http://s3.amazonaws.com/alexa-static/top-1m.csv.zip, and train a 
-   `LSTM model <pydomains/models/malware_pred_2017.ipynb>`__. The function gives 
-   the predicted probability based on the LSTM model.
+   that carry malware, we again devote extra care to try to predict domains
+   involved in distributing malware well. We combine data on malware
+   domains http://mirror1.malwaredomains.com/ with data from
+   http://s3.amazonaws.com/alexa-static/top-1m.csv.zip, and train a
+   `LSTM model <pydomains/models/malware_pred_2017_lstm_rf_svc.ipynb>`__. The
+   function gives the predicted probability based on the LSTM model.
 
    -  **Arguments:**
 
       -  ``df``: pandas dataframe. No default.
-      -  ``domain_names``: column with the domain names/URLs. 
+      -  ``domain_names``: column with the domain names/URLs.
          Default is ``domain_names``
       -  ``year``. Year of the model. Default is 2017. Currently only
          a model based on data from 2017 is available.
@@ -250,8 +250,8 @@ API
 
    -  **Output:**
 
-      -  Appends column `pred_malware_year_lab` and a column indicating the 
-         probability that the domain is involved in distributing malware 
+      -  Appends column `pred_malware_year_lab` and a column indicating the
+         probability that the domain is involved in distributing malware
          (`pred_malware_year_prob`).
 
    - **Examples:**
@@ -461,6 +461,11 @@ Models
 For more information about the models, including the decisions we made around
 curtailing the number of categories, see `here <./pydomains/models/>`__
 
+For model performance and comparison to Random Forest and SVC models, see the
+relevant notebooks and `this folder with eps images of the ROC <./pydomains/models/roc>`__.
+We also checked if the probabilities were calibrated. We find LSTM to be pretty
+well calibrated. The notebooks are posted `here <./pydomains/models/calibration/>`__
+
 Underlying Data
 ~~~~~~~~~~~~~~~~
 
@@ -470,9 +475,9 @@ For more details about how the underlying data, see `here <./pydomains/data/>`__
 Validation
 ~~~~~~~~~~~~~~~~~
 
-We compare content categories according to the `TrustedSource API <https://www.trustedsource.org>`__ 
-with content category from Shallalist and the Shallalist model for all the unique domains in the 
-comScore 2004 data: 
+We compare content categories according to the `TrustedSource API <https://www.trustedsource.org>`__
+with content category from Shallalist and the Shallalist model for all the unique domains in the
+comScore 2004 data:
 
 1. `comScore 2004 Trusted API results <http://dx.doi.org/10.7910/DVN/BPS1OK>`__
 
@@ -484,9 +489,9 @@ Learning Browsing Behavior Using pydomains
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To make it easier to learn browsing behavior of people, we obtained the type of content
-hosted by a domain using all the functions in pydomains for all the unique domains in all 
+hosted by a domain using all the functions in pydomains for all the unique domains in all
 the comScore data from 2002 to 2016 (there are some missing years). We have posted the data
-`here <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DXSNFA>`__  
+`here <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DXSNFA>`__
 
 Notes and Caveats
 ~~~~~~~~~~~~~~~~~~~
@@ -505,15 +510,15 @@ Notes and Caveats
 
 -  Imputing the kind of content hosted by a domain may suggest to some
    that domains carry only one kind of content. Many domains don't. And
-   even when they do, the quality varies immensely. (See more `here 
-   <https://themains.github.io/index.html#domain_classifier>`__.) There is 
-   much less heterogeneity at the URL level. And we plan to look into 
+   even when they do, the quality varies immensely. (See more `here
+   <https://themains.github.io/index.html#domain_classifier>`__.) There is
+   much less heterogeneity at the URL level. And we plan to look into
    predicting at URL level. See `TODO <TODO>`__ for our plans.
 
 -  There are a lot of categories where we do not expect domain names to
    have any systematic patterns. Rather than make noisy predictions
-   using just the domain names (the data that our current set of 
-   classifiers use), we plan to tackle this prediction task with 
+   using just the domain names (the data that our current set of
+   classifiers use), we plan to tackle this prediction task with
    some additional data. See `TODO <TODO>`__ for our plans.
 
 Documentation
