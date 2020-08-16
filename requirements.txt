@@ -1,8 +1,9 @@
-pandas
+pandas==0.24.2
+h5py==2.9.0
+Keras==2.2.4
+numpy==1.16.4
+tensorflow==1.15.2
 tldextract
 requests
 tqdm
-h5py
-keras
-tensorflow
 sphinx_rtd_theme
