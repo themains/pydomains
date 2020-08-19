@@ -6,3 +6,5 @@
 * Find clear, sensible DMOZ categories at whatever tier and use those to train a model.
 * Use domain registrar information and geolocation of IP for prediction.
 * Use headless browsers to download content and use it as part of the model. For instance, number of images, keywords and description in the meta data of the page, size of the page, etc. are all likely useful.
+* Use https://developers.google.com/web/tools/chrome-user-experience-report to supply the list of pop. domains
+* Archive historic data for Phish
