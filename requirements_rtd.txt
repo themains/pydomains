@@ -4,5 +4,5 @@ requests
 tqdm
 h5py
 keras
-tensorflow==1.15.4
+tensorflow==2.5.3
 sphinx_rtd_theme
