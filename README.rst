@@ -14,7 +14,8 @@ PyDomains: Classifying the Content of Domains
     :target: https://pepy.tech/project/pydomains
 
 
-Check out: https://github.com/themains/piedomains
+
+This repository is no longer actively maintained. Check out: https://github.com/themains/piedomains
 ---------------
 
 The package provides two broad ways of learning about the kind of content hosted
