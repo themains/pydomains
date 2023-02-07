@@ -13,6 +13,10 @@ PyDomains: Classifying the Content of Domains
 .. image:: https://pepy.tech/badge/pydomains
     :target: https://pepy.tech/project/pydomains
 
+
+Check out: https://github.com/themains/piedomains
+---------------
+
 The package provides two broad ways of learning about the kind of content hosted
 on a domain. First, it provides convenient access to curated lists of domain content
 like the Shallalist, DMOZ, PhishTank, and such. Second, it exposes models built on top of
